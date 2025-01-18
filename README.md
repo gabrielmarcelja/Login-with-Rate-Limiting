@@ -1,5 +1,5 @@
 # Login with Rate Limiting (JavaScript && Php)
- Simple php login with request limit , ip ban feature
+
 
 ![assets/images/view.png](assets/images/view.png)
 
