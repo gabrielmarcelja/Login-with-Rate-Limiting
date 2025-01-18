@@ -84,6 +84,48 @@ button#mf_button{
     font-size: 2.4dvh;
     cursor: pointer;
 }
+/*ERRO DIV*/
+
+div#erroDiv{
+    display: none;
+    width: 80vw;
+    height: 30vh;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5vh 0;
+}
+p#erroDivTitle{
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+p#erroDivDesc{
+    text-align: center;
+    font-weight: bold;
+    color: rgb(228, 120, 120);
+}
+button#erroDivCloseBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5vh auto 0 auto;
+    width: 80%;
+    height: 5vh;
+    background-color: black;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
 @media (min-width: 821px){
     main{
         width: 50vw;
@@ -107,5 +149,11 @@ button#mf_button{
     }
     button#mf_button:hover{
         background-color: rgb(24, 24, 24);
+    }
+    /*ERRO DIV*/
+    div#erroDiv{
+        display: none;
+        width: 30vw;
+        height: 30vh;
     }
 }

@@ -26,6 +26,7 @@ function requestCheck($mycon, $email, $pass, $ip){
         $banQuery->bindParam(':ip', $ip); 
         $banQuery->bindParam(':UnbanDate', $UnbanDate);
         $banQuery->execute();
+        echo $UnbanDate;
         http_response_code(429);
     }else{
         $insertRequest = $mycon->prepare("INSERT INTO request (Ip) VALUES (:ip)");
@@ -62,6 +63,7 @@ if(isset($_POST['email'])){
                 $banremove->execute();
                 requestCheck($mycon, $email, $pass, $ip);
             }else{
+                echo $isbanData['UnbanDate'];
                 http_response_code(429);
             }
         }else{

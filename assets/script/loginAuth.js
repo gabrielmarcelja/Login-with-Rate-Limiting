@@ -1,3 +1,9 @@
+let errorDiv = document.querySelector('#erroDiv');
+let errorDivTitle = document.querySelector('#erroDivTitle');
+let errorDivDesc = document.querySelector('#erroDivDesc');
+document.querySelector('#erroDivCloseBtn').addEventListener("click", function(){
+    errorDiv.style.display = 'none';
+})
 function validacaoEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
@@ -28,23 +34,28 @@ document.querySelector("#mf_button").addEventListener("click", function(){
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4){
                 if(xhr.status == 201){
-                    //LOGIN REALIZADO COM SUCESSO
-                    console.log(xhr);
+                    errorDiv.style.display = 'block';
+                    errorDivTitle.textContent = 'SUCESS';
+                    errorDivDesc.textContent = 'login successful';
                 }
                 if(xhr.status == 400){
-                    //ERRO EMAIL OU SENHA
-                    console.log(xhr);
+                    errorDiv.style.display = 'block';
+                    errorDivTitle.textContent = 'BAD INFO';
+                    errorDivDesc.textContent = 'INVALID CREDENTIALS';
                 }
                 if(xhr.status == 429){
-                    //too many requests
-                    console.log(xhr);
+                    errorDiv.style.display = 'block';
+                    errorDivTitle.textContent = 'TOO MANY REQUESTS';
+                    errorDivDesc.textContent = 'TRY AGAIN ' + xhr.responseText;
                 }
                 if(xhr.status == 500){
-                    //server error
-                    console.log(xhr);
+                    errorDiv.style.display = 'block';
+                    errorDivTitle.textContent = 'SERVER ERROR';
+                    errorDivDesc.textContent = 'TRY AGAIN LATER';
                 }
             }
         }
         xhr.send("email="+email.value+"&password="+pass.value);
     }
 })
+
